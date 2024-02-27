@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +12,12 @@ import { AuthenticationService } from '../../services/authentication.service';
 export class LoginComponent implements OnInit{
   
   loginForm!:FormGroup;
+  hidePassword: boolean = true;
 
   constructor(private formBuilder:FormBuilder, private authenticationService:AuthenticationService, private router:Router){}
 
   ngOnInit(): void {
+    initFlowbite()
     this.initializeLoginForm()  
   }
 
@@ -23,6 +26,10 @@ export class LoginComponent implements OnInit{
       username: [null, [Validators.required, Validators.pattern('^[a-zA-Z0-9_+&*-]+(?:\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,7}$')]],
       password: [null, [Validators.required]]
     })
+  }
+
+  togglePasswordVisibility(): void {
+    this.hidePassword = !this.hidePassword;
   }
 
   get usernameControl(){

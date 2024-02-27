@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { initFlowbite } from 'flowbite';
 import { AuthenticationService } from 'src/app/authentication/services/authentication.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class ProtectedComponentComponent implements OnInit{
 
   
   ngOnInit(): void {
+    initFlowbite()
     this.authenticationService.accessProtectedData().subscribe(
       (data) => {
         this.dataToDisplay = data?.content;

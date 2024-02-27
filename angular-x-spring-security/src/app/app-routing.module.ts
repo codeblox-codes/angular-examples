@@ -5,6 +5,9 @@ import { RegisterComponent } from './authentication/pages/register/register.comp
 import { ProtectedComponentComponent } from './components/protected-component/protected-component.component';
 import { AuthenticationGuard } from './authentication/guards/authentication.guard';
 import { ActivateAccountComponent } from './authentication/pages/activate-account/activate-account.component';
+import { ForgotPasswordComponent } from './authentication/pages/forgot-password/forgot-password.component';
+import { UpdatePasswordComponent } from './authentication/pages/update-password/update-password.component';
+import { ValidateAccountCodeComponent } from './authentication/pages/validate-account-code/validate-account-code.component';
 
 const routes: Routes = [
   {
@@ -22,6 +25,18 @@ const routes: Routes = [
   {
     path: 'activate-account',
     component: ActivateAccountComponent
+  },
+  {
+    path: 'validation-code',
+    component: ValidateAccountCodeComponent
+  },
+  {
+    path: 'forgot-password',
+    component: ForgotPasswordComponent
+  },
+  {
+    path: 'modify-password',
+    component: UpdatePasswordComponent
   },
   {
     path: 'protected-data',

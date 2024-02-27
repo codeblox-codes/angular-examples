@@ -15,6 +15,10 @@ export class AuthenticationInterceptor implements HttpInterceptor {
   constructor(private authenticationService:AuthenticationService, private router:Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    if (request.url.includes('/accessible')) {
+        return next.handle(request);
+    }
+
     const accessToken = localStorage.getItem('access_token');
     const refreshToken = localStorage.getItem('refresh_token');
 
@@ -50,9 +54,7 @@ private handleTokenRefresh(request: HttpRequest<any>, next: HttpHandler): Observ
           return next.handle(request);
         }),
         catchError(error => {
-            // Handle refresh token expiry
             if (error.status === 401) {
-                // Redirect to login page or handle logout
                 this.authenticationService.logout().subscribe((success)=>{
                   this.router.navigate(['/login'])
                 });

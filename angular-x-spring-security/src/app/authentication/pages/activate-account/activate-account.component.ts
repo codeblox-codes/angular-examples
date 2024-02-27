@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-activate-account',
@@ -15,6 +16,7 @@ export class ActivateAccountComponent implements OnInit{
   constructor(private formBuilder:FormBuilder, private authenticationService:AuthenticationService, private router:Router){}
 
   ngOnInit(): void {
+    initFlowbite()
     this.initializeValidationForm()  
   }
 
