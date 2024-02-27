@@ -1,27 +1,14 @@
-# AngularXSpringSecurity
+# Authentication & Authorization Starter with Angular and Spring Boot
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.10.
+Here is the backend repository: https://github.com/codeblox-codes/spring-boot-examples/tree/master/spring-security-full-stack
 
-## Development server
+This Spring Boot Authentication Starter provides a quick setup for implementing authentication in your Spring Boot applications using Spring Security and JWT (JSON Web Token) for secure communication between client and server.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Functionalities
+- Registration: By default the user has a USER role. When a user register an email containing a code is sent to the email. The user has to validate his account with the code sent. 
+- Login: The user login using his email and his password. An access token and a refresh token are generated. The access token is used on the header of every request that requires authentication. And if the access token has expired, the user can request for another one using the refresh token. If the refresh token also has expired, the user is kicked out of his account.
+- Update password
 
-## Code scaffolding
+<!-- ### Endpoints
+![spring security starter endpoints](swagger.png) -->
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
